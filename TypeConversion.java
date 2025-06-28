@@ -24,6 +24,7 @@ class TypeConversion{
         int a = 257;
         byte k = (byte)a;
         System.out.println(k);
+        System.out.println(17/511.0);
     }
 }
 //comment
