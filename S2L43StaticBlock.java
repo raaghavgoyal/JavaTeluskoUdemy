@@ -19,14 +19,19 @@ class Mobile{
     }
 }
 public class S2L43StaticBlock {
-    public static void main(String[] args) {
-        Mobile obj = new Mobile();
-        obj.brand = "Apple";
-        obj.price = 1399;
+    public static void main(String[] args) throws ClassNotFoundException {
+        //to just instantiate the class without creating it
+        //so the static block will run... since the class will be loaded in the Class Loader
+        Class.forName("Mobile");
+        
+        //static block runs even before the constructor, and it runs only once
+        // Mobile obj = new Mobile();
+        // obj.brand = "Apple";
+        // obj.price = 1399;
 
-        Mobile.name = "iPhone";
+        // Mobile.name = "iPhone";
 
-        Mobile obj2 = new Mobile();
+        // Mobile obj2 = new Mobile();
 
     }
 }
