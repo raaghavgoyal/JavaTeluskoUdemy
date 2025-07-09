@@ -1,7 +1,7 @@
 // by using static variable we are making it a class member not an object
 // so we can access them using class name instead 
 // it also saves memory
-class Mobile{
+class Mobilee{
     String brand;
     int price;
     static String name;
@@ -11,16 +11,16 @@ class Mobile{
 }
 public class S2L41Static {
     public static void main(String[] args) {
-        Mobile m1 = new Mobile();
+        Mobilee m1 = new Mobilee();
         m1.brand = "Apple";
         m1.price = 1399;
-        Mobile.name = "Smart Phone";
-        Mobile m2 = new Mobile();
+        Mobilee.name = "Smart Phone";
+        Mobilee m2 = new Mobilee();
         m2.brand = "Samsung";
         m2.price = 899;
-        Mobile.name = "Smart Phone";
+        Mobilee.name = "Smart Phone";
 
-        Mobile.name = "iPhone";
+        Mobilee.name = "iPhone";
 
         m1.print();
         m2.print();
