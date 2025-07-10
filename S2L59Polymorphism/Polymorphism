@@ -1,0 +1,3 @@
+Polymorphism:
+1. Compile Time (Early Binding) (Overloading)
+2. Run Time     (Late Binding)  (Overriding)
