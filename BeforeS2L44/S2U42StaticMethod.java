@@ -1,3 +1,4 @@
+package BeforeS2L44;
 //we can not use non static variables inside a static method, as we will not be able to  know the 
 // value which we want as we wont be having an object in this case.
 

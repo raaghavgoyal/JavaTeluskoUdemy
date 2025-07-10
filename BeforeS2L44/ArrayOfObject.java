@@ -1,3 +1,4 @@
+package BeforeS2L44;
 //In this code we learn a very important concept of Array of Objects along with,
 // the thing that we need to create an object separately to assign its address into array
 // so here we are first create objects independently and then create an array to store there address

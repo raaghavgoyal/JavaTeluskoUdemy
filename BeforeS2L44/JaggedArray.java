@@ -1,3 +1,4 @@
+package BeforeS2L44;
 public class JaggedArray {
     public static void main(String[] args) {
         //this program teaches us to traverse an array with for-each as well as simple for loop

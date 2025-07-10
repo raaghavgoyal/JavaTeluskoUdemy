@@ -1,21 +1,23 @@
 package S2L44Encapsulation;
+//this keyword is used to represent the current object
 class Human{
     private int age;
     private String name;
-
-    //Methods
-    public int getAge(){
+    public int getAge() {
         return age;
     }
-    public void setAge(int a){
-        this.age = a;
+    public void setAge(int age) {
+        this.age = age;
     }
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public void setName(String n){
-        this.name = n;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    //Methods
+    
 
 }
 class Encapsulation{

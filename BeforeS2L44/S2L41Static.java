@@ -1,3 +1,4 @@
+package BeforeS2L44;
 // by using static variable we are making it a class member not an object
 // so we can access them using class name instead 
 // it also saves memory

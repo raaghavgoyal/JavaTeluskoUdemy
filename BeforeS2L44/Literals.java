@@ -1,3 +1,4 @@
+package BeforeS2L44;
 class Literals{
     public static void main(String [] args){
         int num1 = 585; //literal

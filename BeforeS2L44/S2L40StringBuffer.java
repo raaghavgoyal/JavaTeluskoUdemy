@@ -1,3 +1,4 @@
+package BeforeS2L44;
 public class S2L40StringBuffer {
     //StringBuffer is thread safe and StringBuilder is not
     public static void main(String[] args) {

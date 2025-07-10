@@ -1,3 +1,4 @@
+package BeforeS2L44;
 import java.util.Scanner;
 
 public class CalculatorExercise {
