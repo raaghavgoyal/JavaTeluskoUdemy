@@ -24,7 +24,7 @@ public class InnerClass {
         A obj = new A();
         obj.show();
         A.B obj1 = obj.new B();     //thats how we create an inner class
-        // note we need the object of outer to creat object
+        // note we need the object of outer to create object
         //  it is written even before the new keyword
 
         obj1.config();
