@@ -3,7 +3,7 @@ package S3L77Enum;
 enum Laptop{
     Macbook(2000), XPS(1700), Surface, Yoga(1500);
     private int price;
-
+    //private constructor because we are using it in the same class itself
     private Laptop(){
         price = 500;
     }
