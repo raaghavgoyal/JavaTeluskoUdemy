@@ -3,7 +3,7 @@ package S3L86ExceptionHandlingTry;
 class A{
     public void show() throws ClassNotFoundException{
         try{
-            Class.forName("abc");
+            Class.forName("ThrowsKeyword");
         }
         catch(ClassNotFoundException e){
             System.out.println("Not able to find the class"+e);
