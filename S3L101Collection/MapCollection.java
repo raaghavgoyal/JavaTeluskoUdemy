@@ -7,6 +7,8 @@ import java.util.Map;
 //Map does not extend or implement Collection interface, but it is a part of collection API concept
 public class MapCollection {
     public static void main(String[] args) {
+        //after 1.7 version it is not necessary to give generics value on both the sides
+        // we can simply assign values on the left side only
         Map <String, Integer> students = new HashMap<>();
         
         //Hashtable is the synchronized version of HashMap, so we can use it with multiple threads
