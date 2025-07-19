@@ -14,8 +14,7 @@ public class DemoJdbc {
          */
         //default port of postgresql is 5432
         String url = "jdbc:postgresql://localhost:5432/TeluskoJava";
-        String uname = ;
-        String pass = ;
+
         String sql = "select sname from student where sid = 1";
 
         //this line is optional in new java versions
