@@ -14,7 +14,8 @@ public class DemoJdbc {
          */
         //default port of postgresql is 5432
         String url = "jdbc:postgresql://localhost:5432/TeluskoJava";
-
+        String uname = "postgres";
+        String pass = "pass";
         //String sql = "select sname from student where sid = 1";
         //String sql = "select * from student";
         //String sql = "insert into student values (5, 'John',48)";
