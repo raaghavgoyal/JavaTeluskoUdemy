@@ -9,11 +9,11 @@ public class Main {
     public static void main(String[] args) {
 
         Students s1 = new Students();
-        s1.setsName("Avni");
-        s1.setRollNo(106);
-        s1.setsAge(21);
+//        s1.setsName("Anvit");
+//        s1.setRollNo(109);
+//        s1.setsAge(29);
 
-        Students s2 = null;
+        //Students s2 = null;
 
 //        Configuration cfg = new Configuration();
 //        cfg.addAnnotatedClass(org.example.Students.class);
@@ -31,6 +31,14 @@ public class Main {
         //create a new session since we do not have any open session presently
         Session session = sf.openSession();
 
+        s1 = session.get(Students.class,109);
+        //update
+        Transaction transaction = session.beginTransaction();
+        //session.merge(s1);
+        //delete
+        session.remove(s1);
+        transaction.commit();
+
         //not required while fetching the data
         //Transaction transaction = session.beginTransaction();
 
@@ -38,10 +46,10 @@ public class Main {
 
 
         //transaction.commit();
-        s2 = session.get(Students.class,102);
+        //s2 = session.get(Students.class,102);
         session.close();
         sf.close();
         //System.out.println(s1);
-        System.out.println(s2);
+        System.out.println(s1);
     }
 }
