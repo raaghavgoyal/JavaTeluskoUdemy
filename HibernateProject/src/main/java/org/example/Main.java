@@ -9,16 +9,22 @@ public class Main {
     public static void main(String[] args) {
 
         Students s1 = new Students();
-        s1.setsName("Navin");
-        s1.setRollNo(101);
-        s1.setsAge(31);
+        s1.setsName("Avni");
+        s1.setRollNo(106);
+        s1.setsAge(21);
 
-        Configuration cfg = new Configuration();
-        cfg.addAnnotatedClass(org.example.Students.class);
-        cfg.configure();
+//        Configuration cfg = new Configuration();
+//        cfg.addAnnotatedClass(org.example.Students.class);
+//        cfg.configure();
+
         //session factory is very heavy weight, so use it only once in the project
         // to optimize resource utilization
-        SessionFactory sf = cfg.buildSessionFactory();
+        //SessionFactory sf = cfg.buildSessionFactory();
+        //one line solution
+        SessionFactory sf = new Configuration()
+                            .addAnnotatedClass(org.example.Students.class)
+                            .configure()
+                            .buildSessionFactory();
         //for any unit of work we will have a new session
         //create a new session since we do not have any open session presently
         Session session = sf.openSession();
@@ -29,6 +35,8 @@ public class Main {
 
 
         transaction.commit();
+        session.close();
+        sf.close();
         System.out.println(s1);
 
     }

@@ -10,5 +10,12 @@
         but it would not remove the old columns, so avoid in production-->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
+        <!--not necessary,
+         but required sometimes because the syntax might change sligtly in different DB-->
+        <property name="hibernate.dilect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!--to view the sql query that was created by hibernate-->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
     </session-factory>
 </hibernate-configuration>
