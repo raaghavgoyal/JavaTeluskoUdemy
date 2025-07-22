@@ -7,8 +7,11 @@
         <property name="hibernate.connection.password">pass</property>
 
         <!--update uses the table if it exist or update the schema
-        but it would not remove the old columns, so avoid in production-->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        but it would not remove the old columns, so avoid in production
+        <property name="hibernate.hbm2ddl.auto">update</property>-->
+
+        <!--to create a new table every time-->
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
         <!--not necessary,
          but required sometimes because the syntax might change sligtly in different DB-->
