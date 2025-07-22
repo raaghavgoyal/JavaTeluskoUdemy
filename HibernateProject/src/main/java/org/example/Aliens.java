@@ -2,6 +2,7 @@ package org.example;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -10,6 +11,7 @@ public class Aliens {
     private int aid;
     private String aname;
     private String tech;
+    @OneToOne
     private Laptop laptop;
 
     @Override

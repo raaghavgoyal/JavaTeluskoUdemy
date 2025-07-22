@@ -72,6 +72,7 @@ public class Main {
 //        sf.close();
 
             Laptop l1 = new Laptop();
+            l1.setLid(1);
             l1.setBrand("Asus");
             l1.setModel("Rog");
             l1.setRam(16);
@@ -83,12 +84,15 @@ public class Main {
 
             SessionFactory sf = new Configuration()
                     .addAnnotatedClass(org.example.Aliens.class)
+                    .addAnnotatedClass(org.example.Laptop.class)
                     .configure()
                     .buildSessionFactory();
             Session session = sf.openSession();
 
             Transaction transaction = session.beginTransaction();
 
+            //sequence... because laptop is parent table and alien is child table
+            session.persist(l1);
             session.persist(a1);
 
             transaction.commit();

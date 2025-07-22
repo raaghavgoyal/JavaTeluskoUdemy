@@ -2,12 +2,17 @@ package org.example;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 //since we want that laptop fields should be inside Aliens only
 //not in a different table, we are not using entity
-@Embeddable
+//@Embeddable
+@Entity
 public class Laptop {
 
+    @Id
+    private int lid;
     private String brand;
     private String model;
     private int ram;
@@ -15,10 +20,19 @@ public class Laptop {
     @Override
     public String toString() {
         return "Laptop{" +
-                "brand='" + brand + '\'' +
+                "lid=" + lid +
+                ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
                 '}';
+    }
+
+    public int getLid() {
+        return lid;
+    }
+
+    public void setLid(int lid) {
+        this.lid = lid;
     }
 
     public String getBrand() {
