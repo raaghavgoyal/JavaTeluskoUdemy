@@ -52,24 +52,52 @@ public class Main {
 //        //System.out.println(s1);
 //        //System.out.println(s1);
 
-        Alien a1 = new Alien();
-        a1.setAid(101);
-        a1.setAname("Navin");
-        a1.setTech("Java");
+//        Alien a1 = new Alien();
+//        a1.setAid(101);
+//        a1.setAname("Navin");
+//        a1.setTech("Java");
+//
+//        SessionFactory sf = new Configuration()
+//                .addAnnotatedClass(org.example.Alien.class)
+//                .configure()
+//                .buildSessionFactory();
+//        Session session = sf.openSession();
+//
+//        Transaction transaction = session.beginTransaction();
+//
+//        session.persist(a1);
+//
+//        transaction.commit();
+//        session.close();
+//        sf.close();
 
-        SessionFactory sf = new Configuration()
-                .addAnnotatedClass(org.example.Alien.class)
-                .configure()
-                .buildSessionFactory();
-        Session session = sf.openSession();
+            Laptop l1 = new Laptop();
+            l1.setBrand("Asus");
+            l1.setModel("Rog");
+            l1.setRam(16);
+            Aliens a1 = new Aliens();
+            a1.setAid(101);
+            a1.setAname("Navin");
+            a1.setTech("Java");
+            a1.setLaptop(l1);
 
-        Transaction transaction = session.beginTransaction();
+            SessionFactory sf = new Configuration()
+                    .addAnnotatedClass(org.example.Aliens.class)
+                    .configure()
+                    .buildSessionFactory();
+            Session session = sf.openSession();
 
-        session.persist(a1);
+            Transaction transaction = session.beginTransaction();
 
-        transaction.commit();
-        session.close();
-        sf.close();
+            session.persist(a1);
+
+            transaction.commit();
+
+            Aliens a2 = session.get(Aliens.class, 101);
+            System.out.println(a2);
+
+            session.close();
+            sf.close();
 
     }
 }
