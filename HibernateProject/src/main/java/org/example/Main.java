@@ -13,6 +13,8 @@ public class Main {
         s1.setRollNo(106);
         s1.setsAge(21);
 
+        Students s2 = null;
+
 //        Configuration cfg = new Configuration();
 //        cfg.addAnnotatedClass(org.example.Students.class);
 //        cfg.configure();
@@ -29,15 +31,17 @@ public class Main {
         //create a new session since we do not have any open session presently
         Session session = sf.openSession();
 
-        Transaction transaction = session.beginTransaction();
+        //not required while fetching the data
+        //Transaction transaction = session.beginTransaction();
 
-        session.persist(s1);
+        //session.persist(s1);
 
 
-        transaction.commit();
+        //transaction.commit();
+        s2 = session.get(Students.class,102);
         session.close();
         sf.close();
-        System.out.println(s1);
-
+        //System.out.println(s1);
+        System.out.println(s2);
     }
 }
