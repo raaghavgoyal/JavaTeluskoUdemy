@@ -16,7 +16,9 @@ public class Aliens {
     //mappedBy avoids redundancy by not creating a separate table... when we have
     //already specified the ManyToOne relationship in Laptop
     //@OneToMany(mappedBy = "alien")
-    @ManyToMany
+    //by default the fetch type is lazy if we do not print the data, but we can change
+    //it to eager
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Laptop> laptops;
 
     @Override

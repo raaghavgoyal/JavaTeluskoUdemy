@@ -17,8 +17,8 @@ public class Laptop {
     private int ram;
 //    @ManyToOne
 //    private Aliens alien;
-    @ManyToMany(mappedBy = "laptops")
-    private List<Aliens> aliens;
+//    @ManyToMany(mappedBy = "laptops")
+//    private List<Aliens> aliens;
 
     @Override
     public String toString() {
@@ -62,11 +62,5 @@ public class Laptop {
         this.ram = ram;
     }
 
-    public List<Aliens> getAliens() {
-        return aliens;
-    }
 
-    public void setAliens(List<Aliens> aliens) {
-        this.aliens = aliens;
-    }
 }

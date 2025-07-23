@@ -100,18 +100,18 @@ public class Main {
         a2.setAname("Harsh");
         a2.setTech("Python");
 
-        Aliens a3 = new Aliens();
-        a3.setAid(103);
-        a3.setAname("Kiran");
-        a3.setTech("AI");
+//        Aliens a3 = new Aliens();
+//        a3.setAid(103);
+//        a3.setAname("Kiran");
+//        a3.setTech("AI");
 
         a1.setLaptops(Arrays.asList(l1,l2));
-        a2.setLaptops(Arrays.asList(l2,l3));
-        a3.setLaptops(Arrays.asList(l1));
+        a2.setLaptops(Arrays.asList(l3));
+        //a3.setLaptops(Arrays.asList(l1));
 
-        l1.setAliens(Arrays.asList(a1,a3));
-        l2.setAliens(Arrays.asList(a1,a2));
-        l3.setAliens(Arrays.asList(a2));
+//        l1.setAliens(Arrays.asList(a1,a3));
+//        l2.setAliens(Arrays.asList(a1,a2));
+//        l3.setAliens(Arrays.asList(a2));
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(org.example.Aliens.class)
@@ -129,14 +129,32 @@ public class Main {
 
         session.persist(a1);
         session.persist(a2);
-        session.persist(a3);
+//        session.persist(a3);
 
         transaction.commit();
 
-        Aliens a5 = session.get(Aliens.class, 102);
-        System.out.println(a5);
+
+        //System.out.println(a5);
 
         session.close();
+        Session session1 = sf.openSession();
+
+        Aliens a5 = session1.get(Aliens.class, 101);
+        //the hibernate does not fire a new select query when we write get in the same
+        //session because, hibernate uses CACHE (2 levels l1,l2)
+        //by default hibernate has l1 cache
+        //but it does fire select query in new session
+        //we can also share data in different sessions using l2 cache and libraries
+        //like EH cache and caffeine
+        //lazy fetch(by default)- does not give collections present in the entity
+        //but when we print, we explicitly want complete data
+        // so it executes the complete query
+        //because there may be huge amount of data which may be a expensive task
+        //but we can change this lazy behaviour by specifying fetch type in
+        //one to many mapping
+        //System.out.println(a5);
+        session1.close();
+
         sf.close();
 
     }

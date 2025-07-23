@@ -18,7 +18,8 @@
         <property name="hibernate.dilect">org.hibernate.dialect.PostgreSQLDialect</property>
         <!--to view the sql query that was created by hibernate-->
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
+<!-- to do the formatting of query
+       <property name="hibernate.format_sql">true</property>-->
 
     </session-factory>
 </hibernate-configuration>
