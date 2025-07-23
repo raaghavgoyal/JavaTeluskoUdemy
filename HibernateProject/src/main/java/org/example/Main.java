@@ -122,13 +122,18 @@ public class Main {
                 .buildSessionFactory();
         Session session = sf.openSession();
 
-
-        Query query = session.createQuery("from Laptop where ram = 16");
-        List<Laptop> laptops = query.getResultList();
+        String brand = "Asus";
+        //insert ? like JDBC, but with number to avoid confusion
+        Query query = session.createQuery("select brand, model from Laptop where brand like ?1");
+        query.setParameter(1,brand);
+        List<Object[]> laptops = query.getResultList();
         //sql: select * from laptop where ram = 32
         // hql: from Laptop where ram=32
         //Laptop l1 = session.get(Laptop.class, 3);
         System.out.println(laptops);
+        for(Object[] data: laptops){
+                    System.out.println((String)data[0]+" "+(String)data[1]);
+            }
 
 //        Transaction transaction = session.beginTransaction();
 
