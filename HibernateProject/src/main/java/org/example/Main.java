@@ -122,18 +122,23 @@ public class Main {
                 .buildSessionFactory();
         Session session = sf.openSession();
 
-        String brand = "Asus";
-        //insert ? like JDBC, but with number to avoid confusion
-        Query query = session.createQuery("select brand, model from Laptop where brand like ?1");
-        query.setParameter(1,brand);
-        List<Object[]> laptops = query.getResultList();
+        //this byId().getReference() does the lazy fetch, i.e. fires the query when
+            //the print statement is written, otherwise not
+            //whereas in get() the query is executed irrespective of print statement
+        Laptop laptop = session.byId(Laptop.class).getReference(2);
+            //System.out.println(laptop);
+//        String brand = "Asus";
+//        //insert ? like JDBC, but with number to avoid confusion
+//        Query query = session.createQuery("select brand, model from Laptop where brand like ?1");
+//        query.setParameter(1,brand);
+//        List<Object[]> laptops = query.getResultList();
         //sql: select * from laptop where ram = 32
         // hql: from Laptop where ram=32
         //Laptop l1 = session.get(Laptop.class, 3);
-        System.out.println(laptops);
-        for(Object[] data: laptops){
-                    System.out.println((String)data[0]+" "+(String)data[1]);
-            }
+//        System.out.println(laptops);
+//        for(Object[] data: laptops){
+//                    System.out.println((String)data[0]+" "+(String)data[1]);
+//            }
 
 //        Transaction transaction = session.beginTransaction();
 
