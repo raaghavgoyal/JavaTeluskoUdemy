@@ -1,8 +1,6 @@
 package org.example;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -17,7 +15,8 @@ public class Aliens {
 
     //mappedBy avoids redundancy by not creating a separate table... when we have
     //already specified the ManyToOne relationship in Laptop
-    @OneToMany(mappedBy = "alien")
+    //@OneToMany(mappedBy = "alien")
+    @ManyToMany
     private List<Laptop> laptops;
 
     @Override

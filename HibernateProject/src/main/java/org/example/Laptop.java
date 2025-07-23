@@ -2,6 +2,8 @@ package org.example;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 //since we want that laptop fields should be inside Aliens only
 //not in a different table, we are not using entity
 //@Embeddable
@@ -13,8 +15,10 @@ public class Laptop {
     private String brand;
     private String model;
     private int ram;
-    @ManyToOne
-    private Aliens alien;
+//    @ManyToOne
+//    private Aliens alien;
+    @ManyToMany(mappedBy = "laptops")
+    private List<Aliens> aliens;
 
     @Override
     public String toString() {
@@ -58,11 +62,11 @@ public class Laptop {
         this.ram = ram;
     }
 
-    public Aliens getAlien() {
-        return alien;
+    public List<Aliens> getAliens() {
+        return aliens;
     }
 
-    public void setAlien(Aliens alien) {
-        this.alien = alien;
+    public void setAliens(List<Aliens> aliens) {
+        this.aliens = aliens;
     }
 }

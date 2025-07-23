@@ -84,13 +84,34 @@ public class Main {
         l2.setModel("XPS");
         l2.setRam(16);
 
+        Laptop l3 = new Laptop();
+        l3.setLid(3);
+        l3.setBrand("Apple");
+        l3.setModel("Macbook air");
+        l3.setRam(8);
+
         Aliens a1 = new Aliens();
         a1.setAid(101);
         a1.setAname("Navin");
         a1.setTech("Java");
+
+        Aliens a2 = new Aliens();
+        a2.setAid(102);
+        a2.setAname("Harsh");
+        a2.setTech("Python");
+
+        Aliens a3 = new Aliens();
+        a3.setAid(103);
+        a3.setAname("Kiran");
+        a3.setTech("AI");
+
         a1.setLaptops(Arrays.asList(l1,l2));
-        l1.setAlien(a1);
-        l2.setAlien(a1);
+        a2.setLaptops(Arrays.asList(l2,l3));
+        a3.setLaptops(Arrays.asList(l1));
+
+        l1.setAliens(Arrays.asList(a1,a3));
+        l2.setAliens(Arrays.asList(a1,a2));
+        l3.setAliens(Arrays.asList(a2));
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(org.example.Aliens.class)
@@ -104,12 +125,16 @@ public class Main {
         //sequence... because laptop is parent table and alien is child table
         session.persist(l1);
         session.persist(l2);
+        session.persist(l3);
+
         session.persist(a1);
+        session.persist(a2);
+        session.persist(a3);
 
         transaction.commit();
 
-        Aliens a2 = session.get(Aliens.class, 101);
-        System.out.println(a2);
+        Aliens a5 = session.get(Aliens.class, 102);
+        System.out.println(a5);
 
         session.close();
         sf.close();
