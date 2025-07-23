@@ -123,10 +123,10 @@ public class Main {
         Session session = sf.openSession();
 
         //this byId().getReference() does the lazy fetch, i.e. fires the query when
-            //the print statement is written, otherwise not
-            //whereas in get() the query is executed irrespective of print statement
-        Laptop laptop = session.byId(Laptop.class).getReference(2);
-            //System.out.println(laptop);
+        //the print statement is written, otherwise not
+        //whereas in get() the query is executed irrespective of print statement
+        //Laptop laptop = session.byId(Laptop.class).getReference(2);
+        //System.out.println(laptop);
 //        String brand = "Asus";
 //        //insert ? like JDBC, but with number to avoid confusion
 //        Query query = session.createQuery("select brand, model from Laptop where brand like ?1");
@@ -155,6 +155,8 @@ public class Main {
 
 
         //System.out.println(a5);
+        Laptop l1 = session.get(Laptop.class, 2);
+        System.out.println(l1);
 
         session.close();
 //        Session session1 = sf.openSession();
@@ -175,6 +177,13 @@ public class Main {
 //        //System.out.println(a5);
 //        session1.close();
 
+        //fetching same data in session 2
+        //to implement l2 cache we need to add some libraries like jcache and ehcache etc,
+        //check yourself also use @Cacheable above the Laptop class
+        Session session1 = sf.openSession();
+        Laptop l2 = session1.get(Laptop.class, 2);
+        System.out.println(l2);
+        session1.close();
         sf.close();
 
     }
