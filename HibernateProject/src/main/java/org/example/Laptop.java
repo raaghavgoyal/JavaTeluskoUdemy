@@ -1,9 +1,6 @@
 package org.example;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 //since we want that laptop fields should be inside Aliens only
 //not in a different table, we are not using entity
@@ -16,6 +13,8 @@ public class Laptop {
     private String brand;
     private String model;
     private int ram;
+    @ManyToOne
+    private Aliens alien;
 
     @Override
     public String toString() {
@@ -57,5 +56,13 @@ public class Laptop {
 
     public void setRam(int ram) {
         this.ram = ram;
+    }
+
+    public Aliens getAlien() {
+        return alien;
+    }
+
+    public void setAlien(Aliens alien) {
+        this.alien = alien;
     }
 }

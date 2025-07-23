@@ -2,8 +2,9 @@ package org.example;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Aliens {
@@ -11,8 +12,13 @@ public class Aliens {
     private int aid;
     private String aname;
     private String tech;
-    @OneToOne
-    private Laptop laptop;
+    //@OneToOne
+    //private Laptop laptop;
+
+    //mappedBy avoids redundancy by not creating a separate table... when we have
+    //already specified the ManyToOne relationship in Laptop
+    @OneToMany(mappedBy = "alien")
+    private List<Laptop> laptops;
 
     @Override
     public String toString() {
@@ -20,16 +26,17 @@ public class Aliens {
                 "aid=" + aid +
                 ", aname='" + aname + '\'' +
                 ", tech='" + tech + '\'' +
-                ", laptop=" + laptop +
+                ", laptops=" + laptops +
                 '}';
     }
 
-    public Laptop getLaptop() {
-        return laptop;
+
+    public List<Laptop> getLaptops() {
+        return laptops;
     }
 
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
+    public void setLaptops(List<Laptop> laptops) {
+        this.laptops = laptops;
     }
 
     public int getAid() {
