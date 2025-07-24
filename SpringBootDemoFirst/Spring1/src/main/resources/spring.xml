@@ -35,10 +35,10 @@ autowire(byName) and property both-->
 <!--gives preference in case of confusion
 for eg : when autowiring byType and we had 2 similar type of objects-->
 <!--    but always priority will be given to explicit ref i.e. the one in property-->
-    <bean id="com1" class="org.example.Laptop" primary="true">
+    <bean id="com1" class="org.example.Laptop">
     </bean>
 <!--    lazy init will create the object only in case it is called for the first time-->
-    <bean id="com2" class="org.example.Desktop" lazy-init="true">
+    <bean class="org.example.Desktop" lazy-init="true">
     </bean>
 
 </beans>
