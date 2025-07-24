@@ -1,0 +1,17 @@
+<!--beans are the objects managed by the spring framework-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring will create the object by default for all beans with
+    singleton scope(default), but not prototype scope-->
+    <bean id="alien1" class="org.example.Alien" scope="prototype">
+    </bean>
+
+
+    <bean id="lap" class="org.example.Laptop">
+    </bean>
+
+</beans>

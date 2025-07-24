@@ -8,7 +8,7 @@ public class Alien {
 
     @Autowired
     Laptop laptop;
-    
+
     public void code(){
         laptop.compile();
     }
