@@ -8,7 +8,7 @@
     <!--spring will create the object by default for all beans with
     singleton scope(default), but not prototype scope-->
     <!--    <bean id="alien1" class="org.example.Alien" scope="prototype">-->
-    <bean id="alien1" class="org.example.Alien">
+    <bean id="alien1" class="org.example.Alien" autowire="byType">
         <!--    Value is used for primitive variable but for reference we need ref keyword
                 and id of the bean already created   -->
         <!--        <property name="age" value="21"></property>-->
@@ -17,8 +17,8 @@
         <!--        <constructor-arg value="21" type="int"/>-->
 
         <!--        sequence does not matter in case of index-->
-        <constructor-arg ref="lap1" index="1"/>
-        <constructor-arg value="21" index="0"/>
+<!--        <constructor-arg ref="lap1" index="1"/>-->
+<!--        <constructor-arg value="21" index="0"/>-->
 
         <!--        sequence matters in case of name too
                     if we do not define constructor properties
@@ -26,14 +26,16 @@
         <!--        <constructor-arg value="21" name="age"/>-->
         <!--        <constructor-arg ref="lap1" name="lap"/>-->
 
-
-        <!--        <property name="lap" ref="lap1"/>-->
+                <property name="age" value="21"/>
+<!--        It will prefer com1(property ref) over com in case of
+autowire(byName) and property both-->
+<!--                <property name="com" ref="com1"/>-->
     </bean>
 
 
-    <bean id="lap1" class="org.example.Laptop">
+    <bean id="com1" class="org.example.Laptop">
     </bean>
-    <bean id="lap2" class="org.example.Laptop">
+    <bean id="com2" class="org.example.Desktop">
     </bean>
 
 </beans>
