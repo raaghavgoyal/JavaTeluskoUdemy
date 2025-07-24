@@ -7,7 +7,9 @@
 
     <!--spring will create the object by default for all beans with
     singleton scope(default), but not prototype scope-->
-    <bean id="alien1" class="org.example.Alien" scope="prototype">
+<!--    <bean id="alien1" class="org.example.Alien" scope="prototype">-->
+    <bean id="alien1" class="org.example.Alien">
+        <property name="age" value="21"></property>
     </bean>
 
 
