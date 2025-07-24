@@ -9,11 +9,16 @@
     singleton scope(default), but not prototype scope-->
 <!--    <bean id="alien1" class="org.example.Alien" scope="prototype">-->
     <bean id="alien1" class="org.example.Alien">
+<!--    Value is used for primitive variable but for reference we need ref keyword
+        and id of the bean already created   -->
         <property name="age" value="21"></property>
+        <property name="lap" ref="lap1"></property>
     </bean>
 
 
-    <bean id="lap" class="org.example.Laptop">
+    <bean id="lap1" class="org.example.Laptop">
+    </bean>
+    <bean id="lap2" class="org.example.Laptop">
     </bean>
 
 </beans>
