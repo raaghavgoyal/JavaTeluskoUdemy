@@ -29,7 +29,7 @@
                 <property name="age" value="21"/>
 <!--        It will prefer com1(property ref) over com in case of
 autowire(byName) and property both-->
-                <property name="com" ref="com2"/>
+                <property name="com" ref="com1"/>
     </bean>
 
 <!--gives preference in case of confusion
@@ -37,7 +37,8 @@ for eg : when autowiring byType and we had 2 similar type of objects-->
 <!--    but always priority will be given to explicit ref i.e. the one in property-->
     <bean id="com1" class="org.example.Laptop" primary="true">
     </bean>
-    <bean id="com2" class="org.example.Desktop">
+<!--    lazy init will create the object only in case it is called for the first time-->
+    <bean id="com2" class="org.example.Desktop" lazy-init="true">
     </bean>
 
 </beans>

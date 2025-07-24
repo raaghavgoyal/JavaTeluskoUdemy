@@ -20,5 +20,8 @@ public class App
 //        //but if we change it to prototype, it will create a new object every time
 //        System.out.println(obj2.age);
 //        //obj2.code();
+
+        //creates the object only when we call it (lazy init)
+        Desktop obj = (Desktop) context.getBean("com2");
     }
 }
