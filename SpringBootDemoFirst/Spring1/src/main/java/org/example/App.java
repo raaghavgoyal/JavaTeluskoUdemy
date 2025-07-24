@@ -24,7 +24,7 @@ public class App
         //creates the object only when we call it (lazy init)
 
         //if we have 2 beans of same type, it is good to go with the name instead of type
-        Computer com = context.getBean(Computer.class);
-        Desktop obj = context.getBean(Desktop.class);
+//        Computer com = context.getBean(Computer.class);
+//        Desktop obj = context.getBean(Desktop.class);
     }
 }

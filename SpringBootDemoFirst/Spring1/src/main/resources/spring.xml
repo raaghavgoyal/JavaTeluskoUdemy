@@ -29,16 +29,21 @@
                 <property name="age" value="21"/>
 <!--        It will prefer com1(property ref) over com in case of
 autowire(byName) and property both-->
-                <property name="com" ref="com1"/>
+        <property name="com">
+<!--            now, this is the inner bean for alien, it can be used only by the alien
+                not the outer world-->
+            <bean id="com1" class="org.example.Laptop" primary="true">
+            </bean>
+        </property>
     </bean>
 
 <!--gives preference in case of confusion
 for eg : when autowiring byType and we had 2 similar type of objects-->
 <!--    but always priority will be given to explicit ref i.e. the one in property-->
-    <bean id="com1" class="org.example.Laptop">
-    </bean>
+<!--    <bean id="com1" class="org.example.Laptop" primary="true">-->
+<!--    </bean>-->
 <!--    lazy init will create the object only in case it is called for the first time-->
-    <bean class="org.example.Desktop" lazy-init="true">
-    </bean>
+<!--    <bean class="org.example.Desktop" lazy-init="true">-->
+<!--    </bean>-->
 
 </beans>
