@@ -12,8 +12,8 @@ public class Alien {
 
     //There are 3 type of injections using autowired: 1.field, 2.constructor, 3.setter
     //Field Injection
-    @Autowired
-    //@Qualifier("com2")//default bean name is the class name with first character small
+//    @Autowired
+//    @Qualifier("com2")//default bean name is the class name with first character small
     private Computer com;
 
     //If Autowired with constructor, then it is called constructor injection
@@ -41,7 +41,8 @@ public class Alien {
     }
 
     //Setter Injection (Preffered)
-    //@Autowired
+    @Autowired
+    @Qualifier("laptop")
     public void setCom(Computer com) {
         this.com = com;
     }
