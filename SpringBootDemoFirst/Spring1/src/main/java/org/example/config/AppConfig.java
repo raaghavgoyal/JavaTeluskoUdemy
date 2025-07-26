@@ -11,7 +11,6 @@ import org.springframework.context.annotation.*;
 @Configuration
 @ComponentScan("org.example")
 public class AppConfig {
-
 //    @Bean
 //    public Alien alien(Computer com){   //@Qualifier("desktop")
 //                                        //@Autowired in not required in new versions
