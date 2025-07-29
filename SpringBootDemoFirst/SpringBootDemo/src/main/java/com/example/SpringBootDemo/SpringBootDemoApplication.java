@@ -6,7 +6,7 @@ import com.example.SpringBootDemo.service.LaptopService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
+//it is the combination of @Configuration, @EnableAutoConfiguration and @ComponentScan
 @SpringBootApplication
 public class SpringBootDemoApplication {
 
