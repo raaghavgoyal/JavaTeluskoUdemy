@@ -12,6 +12,7 @@ public class SpringBootDemoApplication {
 		//any object created or managed by spring is called bean
 
 		Alien obj = context.getBean(Alien.class);
+		System.out.println(obj.getAge());
 		obj.code();
 	}
 
