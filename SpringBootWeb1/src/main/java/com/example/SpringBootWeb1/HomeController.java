@@ -14,28 +14,29 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
     @ModelAttribute("course")
-    public String courseName(){
+    public String courseName() {
         return "Java";
     }
 
     @RequestMapping("/")
-    public String home(){
+    public String home() {
         System.out.println("home method called");
         return "index";
     }
 
     @RequestMapping("add")
-    public ModelAndView add(@RequestParam("num1") int num1, @RequestParam("num2") int num2, ModelAndView mv){
-        int result = num1+num2;
+    public ModelAndView add(@RequestParam("num1") int num1, @RequestParam("num2") int num2, ModelAndView mv) {
+        int result = num1 + num2;
 
-        mv.addObject("result",result);
+        mv.addObject("result", result);
         mv.setViewName("result");
 
         return mv;
     }
 
+    
     @RequestMapping("addAlien")
-    public String addAlien(Alien alien){
+    public String addAlien(Alien alien) {
         return "result";
     }
 
