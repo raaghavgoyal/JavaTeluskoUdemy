@@ -17,7 +17,8 @@ public class JobRestController {
     private JobService service;
 
 
-    @GetMapping("jobPosts")
+    @GetMapping(path="jobPosts",produces = {"application/json"})
+    //this produces field , ensures data is sent in the specified format only
     //@ResponseBody   //tells the compiler, we are sending body(data),
                     // don't try to search for view name
                     // or we can directly use @RestController for the same
@@ -30,7 +31,7 @@ public class JobRestController {
         return service.getJob(postId);
     }
 
-    @PostMapping("jobPost")
+    @PostMapping(path = "jobPost", consumes = {"application/xml"})
     public JobPost addJob(@RequestBody JobPost jobPost){//@RequestBody to send the data
         service.addJob(jobPost);
         return service.getJob(jobPost.getPostId());
