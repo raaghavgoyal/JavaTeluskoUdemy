@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.util.Optional;
+
 @SpringBootApplication
 public class SpringDataJpaExApplication {
 
@@ -31,7 +33,11 @@ public class SpringDataJpaExApplication {
 //		repo.save(s2);
 //		repo.save(s3);
 
-		System.out.println(repo.findAll());
+//		System.out.println(repo.findAll());
+
+		Optional<Student> s = repo.findById(103);	//this returns optional type of object
+													// to avoid null pointer exception
+		System.out.println(s.orElse(new Student()));//to return blank object if no student is there
 
 	}
 
