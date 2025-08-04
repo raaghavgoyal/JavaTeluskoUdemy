@@ -35,10 +35,23 @@ public class SpringDataJpaExApplication {
 
 //		System.out.println(repo.findAll());
 
-		Optional<Student> s = repo.findById(103);	//this returns optional type of object
-													// to avoid null pointer exception
-		System.out.println(s.orElse(new Student()));//to return blank object if no student is there
+//		Optional<Student> s = repo.findById(103);	//this returns optional type of object
+//													// to avoid null pointer exception
+//		System.out.println(s.orElse(new Student()));//to return blank object if no student is there
 
+//		System.out.println(repo.findByName("Navin"));
+//		System.out.println(repo.findByMarksGreaterThan(72));
+
+//		//Update
+		Student s2 = context.getBean(Student.class);
+		s2.setRollNo(102);
+		s2.setName("Kiran");
+		s2.setMarks(65);
+//		repo.save(s2);
+//		//fires select query to check if it exists, if yes update if not create
+
+		//delete
+		repo.delete(s2);
 	}
 
 }
