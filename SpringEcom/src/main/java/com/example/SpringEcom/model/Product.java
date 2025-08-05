@@ -22,9 +22,9 @@ public class Product {
     private String brand;
     private BigDecimal price;
     private String category;
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")//just for desired format of date on UI
+    //@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")//just for desired format of date on UI
     private Date releaseDate;
-    private boolean product_available;
+    private boolean productAvailable;
     private int stockQuantity;
     //for image part
     private String imageName;
