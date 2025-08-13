@@ -1,5 +1,7 @@
 package com.example.spring_sec_demo;
 
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -16,6 +18,11 @@ public class StudentController {
     @GetMapping("students")
     public List<Student> getStudents(){
         return students;
+    }
+
+    @GetMapping("csrf-token")
+    public CsrfToken getCsrfToken(HttpServletRequest request){
+        return (CsrfToken) request.getAttribute("_csrf");
     }
 
     @PostMapping("students")
