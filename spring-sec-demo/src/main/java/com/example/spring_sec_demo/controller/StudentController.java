@@ -29,7 +29,6 @@ public class StudentController {
     @PostMapping("students")
     public void addStudent(@RequestBody Student student){
         students.add(student);
-        return;
     }
 
 }
