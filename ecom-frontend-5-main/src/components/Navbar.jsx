@@ -35,7 +35,6 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
     if (value.length >= 1) {
       setShowSearchResults(true)
     try {
-      // this is an experiment to learn git branch
       const response = await axios.get (
         `http://localhost:8080/api/products/search?keyword=${value}`
       );
