@@ -1,4 +1,5 @@
 package S2L51Inheritance;
+//nice implementation
 class Aa{
     public Aa(){
         super();
